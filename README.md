@@ -20,11 +20,11 @@
 
 **Commands run (examples):**
 - `sudo nmap -sS -T4 --open -p- -oA scan_local 10.68.224.114`
-- <img src="./screenshots/1.png" width="600">
+- <img src="./screenshot/1.png" width="600">
 - `sudo nmap -sS -sV -O -p 22,80,443 10.68.224.114 -oN host_192.168.1.10.txt`
-- <img src="./screenshots/2.png" width="600">
+- <img src="./screenshot/2.png" width="600">
 - `sudo nmap -sU -T3 --open -p 1-2000 10.68.224.114 -oN udp_scan.txt`
-- <img src="./screenshots/3.png" width="600">
+- <img src="./screenshot/3.png" width="600">
 
 **Files in this repo:**
 - `scan_local.nmap`, `scan_local.xml`, `scan_local_readable.txt` — Nmap outputs
