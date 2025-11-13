@@ -1,14 +1,87 @@
-# CYBER-SECURITY-TASK-1-
-SUBMISSION
-🛡️ Task 1: Local Network Port ScanningThis repository documents the successful execution and analysis of a local network port scan using Nmap, demonstrating proficiency in initial network reconnaissance as required for the cybersecurity portfolio.🎯 ObjectiveThe objective of this task was to perform a fundamental security assessment of the local area network (LAN) by:Discovering all active devices (hosts).Identifying open ports on those hosts to assess network exposure and running services.💡 Key Concepts AppliedConceptExplanationPort ScanningThe process of probing a range of ports on a host to determine the state (open, closed, or filtered) and identify services running on the network.TCP SYN Scan (-sS)Chosen for its efficiency and relative stealth. It sends a SYN packet and analyzes the response (SYN/ACK means the port is open) without completing the full TCP three-way handshake.Network ReconnaissanceThe preliminary phase of cybersecurity testing where information about the target network and hosts is gathered.Open PortIndicates that an application or service is actively running and listening for connections on that specific port number.🛠️ Tools & EnvironmentPrimary Tool: Nmap (Network Mapper)Operating System: [e.g., Kali Linux VM / Windows 10 / macOS]Network Range: [e.g., 192.168.1.0/24]⚙️ Execution and CommandThe following steps were taken to execute the task:Identified Local IP: Used the ipconfig (or ip addr) command to determine the network structure.My IP: [Your PC's IP Address]Network Range: [The full network range you scanned, e.g., 192.168.1.0/24]Executed Nmap Scan: The -sS flag was used for the TCP SYN Scan across the entire local subnet.Bashnmap -sS [Your Network Range]
-# Example: nmap -sS 192.168.1.0/24
-📊 Findings and Security AnalysisThe scan successfully identified active hosts and their exposed ports.Raw Nmap Output Snippet(NOTE: Paste a representative snippet of the Nmap output here. Ensure all external/public IP addresses are removed, and only the local/private IPs are shown.)Plaintext# Example Output for a Router (192.168.1.1):
+# Task 1 — Local Network Port Scan
 
-Nmap scan report for 192.168.1.1
-Host is up (0.002s latency).
-Not shown: 996 closed ports
-PORT     STATE SERVICE
-22/tcp   open  ssh
-80/tcp   open  http
-443/tcp  open  https
-Analysis of Key FindingsHost IPIdentified Services (Open Ports)Security Implication[e.g., 192.168.1.1]SSH (22/tcp), HTTP (80/tcp), HTTPS (443/tcp)While 443 (HTTPS) is standard, 80 (HTTP) should ideally be disabled or redirected to force encrypted traffic. SSH must have strong, non-default credentials.[e.g., 192.168.1.5]Custom Port (3306/tcp - MySQL)Exposing a database port to the entire local network is a high risk. Access should be restricted via a firewall or network segmentation to only necessary hosts.[Your PC IP]No open portsPositive finding. Indicates the system's firewall is correctly configured to block unsolicited inbound connections.ScreenshotsInclude an image file (e.g., nmap-results.png) in this repository and reference it here to visually confirm the execution.🧠 Conclusion and Lessons LearnedThis task reinforced the fundamental concept that what is open is exposed. Even within a trusted local network, every open port represents a potential entry vector.Key Lesson: Initial reconnaissance is critical. By identifying running services (like Telnet or an exposed database), security issues can be addressed proactively before they are exploited. The use of a TCP SYN Scan proved effective for rapid, low-impact host discovery.🔗 SubmissionThis repository contains the necessary documentation and raw output to meet the task requirements.Link to Repository: [This is where your instructor will get the link when you submit it.]
+**Objective:** Discover open ports on devices in my local network and analyze exposure.
+
+**Tools used:** Nmap, Wireshark (optional)
+
+**Commands run (examples):**
+- `sudo nmap -sS -T4 --open -p- -oA scan_local # Task 1 — Local Network Port Scan
+
+**Objective:** Discover open ports on devices in my local network and analyze exposure.
+
+**Tools used:** Nmap, Wireshark (optional)
+
+**Commands run (examples):**
+- `sudo nmap -sS -T4 --open -p- -oA scan_local 1# Task 1 — Local Network Port Scan
+
+**Objective:** Discover open ports on devices in my local network and analyze exposure.
+
+**Tools used:** Nmap, Wireshark (optional)
+
+**Commands run (examples):**
+- `sudo nmap -sS -T4 --open -p- -oA scan_local 192.168.1.0/24`
+- <img src="./screenshots/nmap_terminal.png" width="600">
+- `sudo nmap -sS -sV -O -p 22,80,443 192.168.1.10 -oN host_192.168.1.10.txt`
+- <img src="./screenshots/nmap_terminal.png" width="600">
+- `sudo nmap -sU -T3 --open -p 1-2000 192.168.1.0/24 -oN udp_scan.txt`
+- <img src="./screenshots/nmap_terminal.png" width="600">
+
+**Files in this repo:**
+- `scan_local.nmap`, `scan_local.xml`, `scan_local_readable.txt` — Nmap outputs
+- `wireshark_capture.pcap` — packet capture (optional)
+- `screenshots/` — screenshots of terminal and Wireshark
+
+**Summary of findings:**
+- 192.168.1.10 — ports open: 22 (ssh), 80 (http). Risk: default SSH and HTTP exposed from local network; ensure strong passwords and update web apps.
+- 192.168.1.15 — port open: 445 (SMB). Risk: SMB exposure; restrict with firewall.
+
+**Recommendations / Remediation:**
+1. Close or restrict unused services via firewall (ufw/Windows Firewall).
+2. Apply updates to services (patch known CVEs).
+3. Use strong authentication (disable telnet, use key-based SSH, use HTTPS).
+4. Use network segmentation and VLANs for IoT devices.
+
+**Ethical note:** All scans were performed only on devices I own (or with permission).
+
+4`
+- `sudo nmap -sS -sV -O -p 22,80,443 192.168.1.10 -oN host_192.168.1.10.txt`
+- `sudo nmap -sU -T3 --open -p 1-2000 192.168.1.0/24 -oN udp_scan.txt`
+
+**Files in this repo:**
+- `scan_local.nmap`, `scan_local.xml`, `scan_local_readable.txt` — Nmap outputs
+- `wireshark_capture.pcap` — packet capture (optional)
+- `screenshots/` — screenshots of terminal and Wireshark
+
+**Summary of findings:**
+- 192.168.1.10 — ports open: 22 (ssh), 80 (http). Risk: default SSH and HTTP exposed from local network; ensure strong passwords and update web apps.
+- 192.168.1.15 — port open: 445 (SMB). Risk: SMB exposure; restrict with firewall.
+
+**Recommendations / Remediation:**
+1. Close or restrict unused services via firewall (ufw/Windows Firewall).
+2. Apply updates to services (patch known CVEs).
+3. Use strong authentication (disable telnet, use key-based SSH, use HTTPS).
+4. Use network segmentation and VLANs for IoT devices.
+
+**Ethical note:** All scans were performed only on devices I own (or with permission).
+
+`
+- `sudo nmap -sS -sV -O -p 22,80,443 192.168.1.10 -oN host_192.168.1.10.txt`
+- `sudo nmap -sU -T3 --open -p 1-2000 192.168.1.0/24 -oN udp_scan.txt`
+
+**Files in this repo:**
+- `scan_local.nmap`, `scan_local.xml`, `scan_local_readable.txt` — Nmap outputs
+- `wireshark_capture.pcap` — packet capture (optional)
+- `screenshots/` — screenshots of terminal and Wireshark
+
+**Summary of findings:**
+- 192.168.1.10 — ports open: 22 (ssh), 80 (http). Risk: default SSH and HTTP exposed from local network; ensure strong passwords and update web apps.
+- 192.168.1.15 — port open: 445 (SMB). Risk: SMB exposure; restrict with firewall.
+
+**Recommendations / Remediation:**
+1. Close or restrict unused services via firewall (ufw/Windows Firewall).
+2. Apply updates to services (patch known CVEs).
+3. Use strong authentication (disable telnet, use key-based SSH, use HTTPS).
+4. Use network segmentation and VLANs for IoT devices.
+
+**Ethical note:** All scans were performed only on devices I own (or with permission).
+
