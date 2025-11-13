@@ -1,0 +1,22 @@
+# Nmap 7.98 scan initiated Thu Nov 13 20:22:56 2025 as: nmap -sS -T4 --open -p- -oA scan_local 10.68.224.114
+Nmap scan report for 10.68.224.114
+Host is up (0.00076s latency).
+Not shown: 65520 closed tcp ports (reset), 1 filtered tcp port (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT      STATE SERVICE
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+445/tcp   open  microsoft-ds
+3306/tcp  open  mysql
+5040/tcp  open  unknown
+5357/tcp  open  wsdapi
+7680/tcp  open  pando-pub
+33060/tcp open  mysqlx
+49664/tcp open  unknown
+49665/tcp open  unknown
+49666/tcp open  unknown
+49667/tcp open  unknown
+49668/tcp open  unknown
+49671/tcp open  unknown
+
+# Nmap done at Thu Nov 13 20:23:02 2025 -- 1 IP address (1 host up) scanned in 6.78 seconds
