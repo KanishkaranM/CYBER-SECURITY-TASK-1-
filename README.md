@@ -19,12 +19,12 @@
 **Tools used:** Nmap, Wireshark (optional)
 
 **Commands run (examples):**
-- `sudo nmap -sS -T4 --open -p- -oA scan_local 192.168.1.0/24`
-- <img src="./screenshots/nmap_terminal.png" width="600">
-- `sudo nmap -sS -sV -O -p 22,80,443 192.168.1.10 -oN host_192.168.1.10.txt`
-- <img src="./screenshots/nmap_terminal.png" width="600">
-- `sudo nmap -sU -T3 --open -p 1-2000 192.168.1.0/24 -oN udp_scan.txt`
-- <img src="./screenshots/nmap_terminal.png" width="600">
+- `sudo nmap -sS -T4 --open -p- -oA scan_local 10.68.224.114`
+- <img src="./screenshots/1.png" width="600">
+- `sudo nmap -sS -sV -O -p 22,80,443 10.68.224.114 -oN host_192.168.1.10.txt`
+- <img src="./screenshots/2.png" width="600">
+- `sudo nmap -sU -T3 --open -p 1-2000 10.68.224.114 -oN udp_scan.txt`
+- <img src="./screenshots/3.png" width="600">
 
 **Files in this repo:**
 - `scan_local.nmap`, `scan_local.xml`, `scan_local_readable.txt` — Nmap outputs
@@ -32,8 +32,8 @@
 - `screenshots/` — screenshots of terminal and Wireshark
 
 **Summary of findings:**
-- 192.168.1.10 — ports open: 22 (ssh), 80 (http). Risk: default SSH and HTTP exposed from local network; ensure strong passwords and update web apps.
-- 192.168.1.15 — port open: 445 (SMB). Risk: SMB exposure; restrict with firewall.
+- 10.68.224.114 — ports open: 22 (ssh), 80 (http). Risk: default SSH and HTTP exposed from local network; ensure strong passwords and update web apps.
+- 10.68.224.114 — port open: 445 (SMB). Risk: SMB exposure; restrict with firewall.
 
 **Recommendations / Remediation:**
 1. Close or restrict unused services via firewall (ufw/Windows Firewall).
@@ -53,8 +53,8 @@
 - `screenshots/` — screenshots of terminal and Wireshark
 
 **Summary of findings:**
-- 192.168.1.10 — ports open: 22 (ssh), 80 (http). Risk: default SSH and HTTP exposed from local network; ensure strong passwords and update web apps.
-- 192.168.1.15 — port open: 445 (SMB). Risk: SMB exposure; restrict with firewall.
+- 10.68.224.1140 — ports open: 22 (ssh), 80 (http). Risk: default SSH and HTTP exposed from local network; ensure strong passwords and update web apps.
+- 10.68.224.114 — port open: 445 (SMB). Risk: SMB exposure; restrict with firewall.
 
 **Recommendations / Remediation:**
 1. Close or restrict unused services via firewall (ufw/Windows Firewall).
@@ -74,8 +74,8 @@
 - `screenshots/` — screenshots of terminal and Wireshark
 
 **Summary of findings:**
-- 192.168.1.10 — ports open: 22 (ssh), 80 (http). Risk: default SSH and HTTP exposed from local network; ensure strong passwords and update web apps.
-- 192.168.1.15 — port open: 445 (SMB). Risk: SMB exposure; restrict with firewall.
+- 10.68.224.114 — ports open: 22 (ssh), 80 (http). Risk: default SSH and HTTP exposed from local network; ensure strong passwords and update web apps.
+- 10.68.224.114 — port open: 445 (SMB). Risk: SMB exposure; restrict with firewall.
 
 **Recommendations / Remediation:**
 1. Close or restrict unused services via firewall (ufw/Windows Firewall).
